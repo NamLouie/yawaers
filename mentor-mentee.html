@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor/Mentee Profiles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            color: #000;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link:focus,
+        .navbar-nav .nav-link:active {
+            color: #000;
+            background-color: #d3d3d3;
+            border-radius: 5px;
+        }
+        .dropdown-menu {
+            right: 0;
+            left: auto;
+        }
+        .dropdown-menu .dropdown-item:hover {
+            background-color: #d3d3d3;
+            color: #000;
+        }
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .profile-section {
+            padding: 80px 0;
+        }
+        .profile-card {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease;
+            position: relative;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .profile-card h5 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .profile-card p {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        .profile-card .btn-primary {
+            border-radius: 25px;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #fff;
+            margin-top: auto;
+        }
+        .profile-card .btn-primary:hover {
+            background-color: #0069d9;
+        }
+        .filter-section {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            height: 100%;
+        }
+        .filter-section h5 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .filter-checkbox {
+            margin-bottom: 10px;
+        }
+        .filter-checkbox label {
+            font-weight: 500;
+            color: #495057;
+        }
+        .filter-checkbox input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .search-form {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .search-form .input-group {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+        .search-form .form-control {
+            border-radius: 0 25px 25px 0;
+            padding-left: 40px;
+        }
+        .search-form .input-group .input-group-text {
+            border-radius: 25px 0 0 25px;
+            background-color: #fff;
+            border: 1px solid #ced4da;
+        }
+        .search-form .input-group-text img {
+            width: 20px;
+            height: 20px;
+        }
+        .profile-card img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .nav-link.custom-hover:hover {
+            background-color: #d3d3d3; /* Light gray background on hover */
+        }
+    </style>
+</head>
+<body>
+    <header class="p-3">
+        <div class="container-fluid">
+            <div class="d-flex flex-wrap align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    <a href="landing-page.html" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
+                        <img src="/image/University_of_San_Agustin_Logo.png" alt="University Logo" width="50" height="50">
+                    </a>
+                    <ul class="nav ms-3">
+                        <li><a href="profile.html" class="nav-link px-2 text-black custom-hover">Profile</a></li>
+                        <li><a href="mentor-mentee.html" class="nav-link px-2 text-black custom-hover">Mentor/Mentee</a></li>
+                        <li><a href="report.html" class="nav-link px-2 text-black custom-hover">Report</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown text-end">
+                    <a href="#" class="d-block text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="./image/user.png" alt="User" width="32" height="32" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end text-small">
+                        <li><a class="dropdown-item custom-hover" href="#">Settings</a></li>
+                        <li><a class="dropdown-item custom-hover" href="profile.html">Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item custom-hover" href="index.html" id="sign-out">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-3 mb-4">
+                <div class="filter-section">
+                    <h5>Role</h5>
+                    <div class="form-check filter-checkbox">
+                        <input class="form-check-input" type="checkbox" value="" id="roleMentor">
+                        <label class="form-check-label" for="roleMentor">Mentor</label>
+                    </div>
+                    <div class="form-check filter-checkbox">
+                        <input class="form-check-input" type="checkbox" value="" id="roleMentee">
+                        <label class="form-check-label" for="roleMentee">Mentee</label>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="mb-0">Mentor/Mentee Profiles</h1>
+                    <form class="search-form">
+                        <div class="input-group">
+                            <span class="input-group-text" id="search-icon">
+                                <img src="/image/search.png" alt="Search Icon">
+                            </span>
+                            <input type="text" class="form-control" placeholder="Search...">
+                        </div>
+                    </form>
+                </div>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <div class="col">
+                        <div class="profile-card">
+                            <img src="./image/user.png" class="img-fluid rounded-circle" alt="Profile Picture">
+                            <h5 class="mt-3 mb-0">John Doe</h5>
+                            <p class="text-muted mb-2">Mentee</p>
+                            <p>Email: john.doe@example.com</p>
+                            <p>Specialization: Web Development</p>
+                            <button class="btn btn-primary mt-auto">Request</button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="profile-card">
+                            <img src="./image/user.png" class="img-fluid rounded-circle" alt="Profile Picture">
+                            <h5 class="mt-3 mb-0">Jane Smith</h5>
+                            <p class="text-muted mb-2">Mentor</p>
+                            <p>Email: jane.smith@example.com</p>
+                            <p>Specialization: Data Science</p>
+                            <button class="btn btn-primary mt-auto">Request</button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="profile-card">
+                            <img src="./image/user.png" class="img-fluid rounded-circle" alt="Profile Picture">
+                            <h5 class="mt-3 mb-0">Alice Johnson</h5>
+                            <p class="text-muted mb-2">Mentee</p>
+                            <p>Email: alice.johnson@example.com</p>
+                            <p>Specialization: Cybersecurity</p>
+                            <button class="btn btn-primary mt-auto">Request</button>
+                        </div>
+                    </div>
+                    <!-- Add more profile cards as needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-WPhX4BG+1Y7Xo7Qk4C2j/0UlLWIMfFZ8SST/JMClf3HTblTR+oAaCNnq5a4Qk0wX" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-oi99uTtsHv4SlXGFfwnXY4UkCtVTSeTlr4t4vOjzS+dNsfoRSVxKJ5Uzj8By6r3" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('sign-out').addEventListener('click', function() {
+            // Add the sign-out functionality here
+            // For example, you can redirect the user to the login page
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
